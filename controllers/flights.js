@@ -48,7 +48,7 @@ function show(req, res){
   })
   .catch(error => {
     console.log(error)
-    res.redirect('/')
+    res.redirect('/flights')
   })
 }
 
@@ -65,6 +65,18 @@ function edit(req, res){
   })
 }
 
+function update(req, res) {
+  req.body.flightNo = !!req.body.flightNo //!instead of req.body.done???
+  Flight.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(flight => {
+    res.redirect(`/flights/${flight._id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/flights')
+  })
+}
+
 
 export {
   index,
@@ -73,4 +85,5 @@ export {
   deleteFlight as delete,
   show,
   edit,
+  update,
 }
