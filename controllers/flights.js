@@ -21,6 +21,7 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body)
   Flight.create(req.body)
   .then(flight => {
     console.log(flight)
@@ -42,8 +43,9 @@ function deleteFlight(req, res){
 function show(req, res){
   Flight.findById(req.params.id)
   .then(flight => {
+    console.log(flight)
     res.render('flights/show',{
-      flight: flight
+      flight: flight // object
     })
   })
   .catch(error => {
@@ -56,7 +58,8 @@ function edit(req, res){
   Flight.findById(req.params.id)
   .then(flight => {
     res.render('flights/edit',{
-      flight: flight
+      flight: flight,
+      title: 'Edit Flight'
     })
   })
   .catch(error => {
@@ -66,7 +69,7 @@ function edit(req, res){
 }
 
 function update(req, res) {
-  req.body.flightNo = !!req.body.flightNo //!instead of req.body.done???
+  // req.body.flightNo = !!req.body.flightNo //!instead of req.body.done???
   Flight.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(flight => {
     res.redirect(`/flights/${flight._id}`)

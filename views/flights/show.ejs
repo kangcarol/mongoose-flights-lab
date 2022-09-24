@@ -1,8 +1,17 @@
 
 
 <h1>Flight Details</h1>
+
+<!-- <form
+  action="/flights/## flight._id ##/edit"
+  class="edit-form"
+  method="POST"
+>
+<button type="submit">Edit Flight</button>
+</form> -->
+
 <a href="/flights/<%= flight._id %>/edit">Edit Flight</a>
-<h2>Flight id<%= flight._id %></h2>
+<h2>Flight id <%= flight._id %></h2>
 <h3><%= flight.airline %></h3>
 <h3><%= flight.airport %></h3>
 <h3><%= flight.flightNo %></h3>
