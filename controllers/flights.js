@@ -45,7 +45,8 @@ function show(req, res){
   .then(flight => {
     console.log(flight)
     res.render('flights/show',{
-      flight: flight // object
+      flight: flight, // object
+      title: 'Flight Detail'
     })
   })
   .catch(error => {
@@ -72,7 +73,7 @@ function update(req, res) {
   // req.body.flightNo = !!req.body.flightNo //!instead of req.body.done???
   Flight.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(flight => {
-    res.redirect(`/flights/${flight._id}`)
+    res.redirect(`/flights`) // `/flights`/${flight._id}
   })
   .catch(error => {
     console.log(error)

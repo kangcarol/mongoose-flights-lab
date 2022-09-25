@@ -6,6 +6,7 @@
 
       <label for="airline">Airline:</label>
       <select name="airline" id="airline">
+        <option value="<%= flight.airline %>"><%= flight.airline %></option>
         <option value="American">American</option>
         <option value="Southwest">Southwest</option>
         <option value="United">United</option>
@@ -13,6 +14,7 @@
 
       <label for="airport">Airport:</label>
       <select name="airport" id="airport">
+        <option value="<%= flight.airport %>"><%= flight.airport %></option>
         <option value="AUS">AUS</option>
         <option value="DFW">DFW</option>
         <option value="DEN">DEN</option>
@@ -21,10 +23,10 @@
       </select>
 
       <label for="flightNo">Flight No.</label>
-      <input type="number" name="flightNo" id="flightNo">
+      <input type="number" name="flightNo" id="flightNo" value="<%= flight.flightNo %>" >
 
       <label for="departs">Departs</label>
-      <input type="datetime-local" name="departs" id="departs">
+      <input type="datetime-local" name="departs" id="departs" value="<%= flight.departs %>">
 
       <button type="submit">UPDATE</button>
 
