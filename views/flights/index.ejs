@@ -21,7 +21,7 @@
           <td><%= flight.airline %></td>
           <td><%= flight.airport %></td>
           <td><%= flight.flightNo %></a></td>
-          <td><%= flight.departs %></td>
+          <td><%= (flight.departs).toUTCString() %></td>
           <td>
             <form
               action="/flights/<%= flight._id %>"
