@@ -1,3 +1,6 @@
+<%- include('../partials/html-head')  %>
+<link rel="stylesheet" href="/stylesheets/flights/edit.css" />
+<%- include('../partials/nav')  %>
 
   <main>
     <h1><%= title %></h1>
@@ -26,9 +29,12 @@
       <input type="number" name="flightNo" id="flightNo" value="<%= flight.flightNo %>" >
 
       <label for="departs">Departs</label>
-      <input type="datetime-local" name="departs" id="departs" value="<%= flight.departs %>">
+      <input type="datetime-local" name="departs" id="departs" value="">
+      <!-- <    %= flight.departs %> -->
 
       <button type="submit">UPDATE</button>
 
     </form>
   </main>
+
+  <%- include('../partials/footer')  %>
