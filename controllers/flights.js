@@ -74,6 +74,9 @@ function edit(req, res){
 
 function update(req, res) {
   // req.body.flightNo = !!req.body.flightNo //!instead of req.body.done???
+  for (let key in req.body){
+    if (req.body[key] ==='') delete req.body[key]
+  }
   Flight.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(flight => {
     res.redirect(`/flights`) // `/flights`/${flight._id}
