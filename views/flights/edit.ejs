@@ -31,7 +31,7 @@
       <label for="departs">Departs</label>
       <input type="datetime-local" name="departs" id="departs" value="<%= flight.departs%>">
       <!-- <    %= flight.departs %> -->
-      <p id="current-depart">*Current Departure: <%= (flight.departs).toLocaleString()%></p>
+      <p id="current-depart">*Current Departure: <%= (flight.departs).toISOString().slice(0, 16)%></p>
       <button type="submit">UPDATE</button>
 
     </form>

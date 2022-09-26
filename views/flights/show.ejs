@@ -2,14 +2,63 @@
 <link rel="stylesheet" href="/stylesheets/flights/show.css" />
 <%- include('../partials/nav') %>
 
-<h1>Flight Details</h1>
+<main>
+<h1><%= title %></h1>
+<section>
+  <div>Flight: </div>
+  <div>
+    <%= flight._id %>
+    <a href="/flights/<%= flight._id %>/edit">
+      <button>Edit Flight</button>
+    </a>
+  </div>
+  <div>Airline: </div>
+  <div><%= flight.airline %></div>
+  <div>Airport: </div>
+  <div><%= flight.airport %></div>
+  <div>Flight No.: </div>
+  <div><%= flight.flightNo %></div>
+  <div>Departure: </div>
+  <div><%= flight.departs %></div>
+</section>
 
-<a href="/flights/<%= flight._id %>/edit">Edit Flight</a>
-<h2>Flight id <%= flight._id %></h2>
-<h3><%= flight.airline %></h3>
-<h3><%= flight.airport %></h3>
-<h3><%= flight.flightNo %></h3>
-<h3><%= flight.departs %></h3>
+<h2>Tickets</h2>
+<form
+  id="add-ticket-form"
+  action="/flights/<%= flight._id %>/tickets"
+  method="POST"
+>
+  <label for="content-textarea">Seat:</label>
+  <input name="seat" required pattern="[A-F][1-9]\d?" id="content-textarea">
+
+  <label for="price-area">Price:</label>
+  <input name="price" type="number" id="price-area">
+
+  <button type="submit">Add Ticket</button>
+</form>
+
+<% if (flight.tickets.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Ticket</th>
+        <th>Seat</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% flight.tickets.forEach(function(ticket) { %>
+        <tr>
+          <td><%= ticket._id %></td>
+          <td><%= ticket.seat %></td>
+          <td><%= ticket.price %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h3>No Tickets Yet</h3>
+<% } %>
 
 <a href="/flights">Go back!</a>
 
