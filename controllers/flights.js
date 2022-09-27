@@ -129,7 +129,16 @@ function deleteTicket(req, res) {
   })
 }
 
-
+function addToMeals(req, res) {
+  Flight.findById(req.params.id)
+  .then(flight => {
+    flight.meals.push(req.body.mealId)
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
 
 export {
   index,
@@ -141,4 +150,5 @@ export {
   update,
   createTicket,
   deleteTicket,
+  addToMeals,
 }
