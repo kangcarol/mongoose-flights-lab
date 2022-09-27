@@ -89,8 +89,8 @@ function update(req, res) {
 
 
 function createTicket(req, res) {
-  console.log(req.params.id, "ticketID")
-  console.log(req.body, "req.body")
+  // console.log(req.params.id, "ticketID")
+  // console.log(req.body, "req.body")
   Flight.findById(req.params.id)
   .then(flight => {
     flight.tickets.push(req.body)
@@ -109,6 +109,27 @@ function createTicket(req, res) {
   })
 }
 
+function deleteTicket(req, res) {
+  Flight.findById(req.params.id)
+  .then(flight => {
+    console.log(req.params.ticketId,':::: req.params.ticketId')
+    flight.tickets.remove(req.params.ticketsId)//specific flight's ticket array, need to remove specific ticket
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
 
 export {
   index,
@@ -119,4 +140,5 @@ export {
   edit,
   update,
   createTicket,
+  deleteTicket,
 }
