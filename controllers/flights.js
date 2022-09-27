@@ -114,7 +114,6 @@ function deleteTicket(req, res) {
   .then(flight => {
     console.log(req.params.ticketId,':::: req.params.ticketId')
     flight.tickets.remove({_id:req.params.ticketId})//specific flight's ticket array, need to remove specific ticket
-    console.log(flight.tickets, ':::: tickets array')
     flight.save()
     .then(() => {
       res.redirect(`/flights/${flight._id}`)
