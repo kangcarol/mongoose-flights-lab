@@ -19,7 +19,7 @@
   <div>Flight No.: </div>
   <div><%= flight.flightNo %></div>
   <div>Departure: </div>
-  <div><%= flight.departs %></div>
+  <div><%= (flight.departs).toLocaleString()%></div>
   <div>Meals:</div>
   <ul>
     <% flight.meals.forEach(meal => { %>
@@ -28,7 +28,7 @@
   </ul>
 </section>
 
-<form id="add-per-to-cast" action="/flights/<%= flight._id %>/meals " method="POST">
+<form id="add-to-meals" action="/flights/<%= flight._id %>/meals " method="POST">
 
   <select name="mealId">
     <% meals.forEach(meal => { %>
