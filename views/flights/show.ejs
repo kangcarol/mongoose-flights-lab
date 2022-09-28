@@ -23,7 +23,16 @@
   <div>Meals:</div>
   <ul>
     <% flight.meals.forEach(meal => { %>
-      <li><%= meal.name %></li>
+    <div id="meal-line">
+      <li><%= meal.name %> </li>
+      <form
+        action="/flights/<%= flight._id %>/meals/<%= meal._id%>?_method=DELETE"
+        class="delete-form"
+        method="POST"
+        >
+        <button class="btn btn-outline-light btn-sm show-btn" type="submit">delete</button>
+      </form>
+    </div>
     <% }) %>
   </ul>
 </section>
@@ -34,6 +43,7 @@
     <% meals.forEach(meal => { %>
       <option value="<%= meal._id %>"><%= meal.name %></option>
     <% }) %>
+
   </select>
   <button class="btn btn-secondary" type="submit">Add to Meals</button>
 </form>
