@@ -40,7 +40,7 @@ section div:nth-child(even) {
 #add-ticket-form {
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 16px;
+  grid-gap: 10px;
   margin-bottom: 20px;
   justify-content: start;
 }
@@ -58,4 +58,16 @@ section div:nth-child(even) {
 
 #add-to-meals {
   margin: 20px 0 0 0;
+
 }
+
+
+.show-btn {
+  color:  #424748;
+  border-color:  #424748;
+}
+
+.tickets-header {
+  margin: 20px 0 10px 0;
+}
+

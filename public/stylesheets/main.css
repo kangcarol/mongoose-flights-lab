@@ -82,3 +82,13 @@ nav > a.active {
   font-family: "Font Awesome 5 Free";
   color: white;
 }
+
+.index-btns {
+  border-color: #424748;
+  color: #424748;
+}
+
+select, input {
+  border: none;
+  color:   #424748
+}
