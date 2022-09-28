@@ -68,7 +68,7 @@
       <% flight.tickets.forEach(function(ticket) { %>
         <tr>
           <td><%= ticket._id %></td>
-          <td><%= ticket.createdAt.toLocaleDateString() %></td>
+          <td><%= ticket.createdAt.toLocaleString() %></td>
           <td><%= ticket.seat %></td>
           <td><%= ticket.price %></td>
           <td>
