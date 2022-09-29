@@ -92,3 +92,11 @@ select, input {
   border: none;
   color:   #424748
 }
+
+#breathing-room {
+  margin: 2px;
+}
+
+#meal-line {
+  margin: 3px 0 0 0;
+}

@@ -9,6 +9,7 @@
   <div>
     <%= flight._id %>
     <a href="/flights/<%= flight._id %>/edit">
+      <span id="breathing-room"></span>
       <button class="btn btn-outline-light btn-med show-btn">Edit Flight</button>
     </a>
   </div>
@@ -30,6 +31,7 @@
         class="delete-form"
         method="POST"
         >
+        <span id="breathing-room"></span>
         <button class="btn btn-outline-light btn-sm show-btn" type="submit">delete</button>
       </form>
     </div>
