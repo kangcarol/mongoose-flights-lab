@@ -1,6 +1,6 @@
-# fly.toml file generated for ckang-flighapp on 2022-09-30T10:37:14-04:00
+# fly.toml file generated for carolkang-flights-app on 2022-09-30T11:41:44-04:00
 
-app = "ckang-flighapp"
+app = "carolkang-flights-app"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
